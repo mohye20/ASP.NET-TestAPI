@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TestAPI.Data.Models;
 
 namespace TestAPI.Data
 {
@@ -7,5 +8,7 @@ namespace TestAPI.Data
 		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
 		{
 		}
+
+		public DbSet<Category> Categories { get; set; }
 	}
 }
