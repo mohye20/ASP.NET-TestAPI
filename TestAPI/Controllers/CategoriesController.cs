@@ -46,5 +46,23 @@ namespace TestAPI.Controllers
 			_dB.SaveChanges();
 			return Ok(C);
 		}
+
+		[HttpDelete("id")]
+		public async Task<IActionResult> DeleteCategroy(int Id)
+		{
+			var C = await _dB.Categories.SingleOrDefaultAsync(x => x.Id == Id);
+
+			if (C is null)
+			{
+				return NotFound($"Categiry Id {Id} Not Exist!");
+			}
+
+			_dB.Categories.Remove(C);
+			_dB.SaveChanges();
+			return Ok(C);
+		}
+
+
+
 	}
 }
