@@ -47,7 +47,7 @@ namespace TestAPI.Controllers
 			return Ok(C);
 		}
 
-		[HttpDelete("id")]
+		[HttpDelete("{id}")]
 		public async Task<IActionResult> DeleteCategroy(int Id)
 		{
 			var C = await _dB.Categories.SingleOrDefaultAsync(x => x.Id == Id);
@@ -61,8 +61,5 @@ namespace TestAPI.Controllers
 			_dB.SaveChanges();
 			return Ok(C);
 		}
-
-
-
 	}
 }
